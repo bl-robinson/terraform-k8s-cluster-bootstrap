@@ -1,0 +1,5 @@
+apiVersion: v2
+name: home-flux
+description: Home Flux Repo
+type: application
+version: 0.0.1

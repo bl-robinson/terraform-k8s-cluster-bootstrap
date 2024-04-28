@@ -1,23 +1,17 @@
-resource "kubernetes_manifest" "git_repo" {
-    manifest = {
-        "apiVersion" = "source.toolkit.fluxcd.io/v1"
-        "kind" = "GitRepository"
-        "metadata" = {
-            "name" = "home-flux"
-            "namespace" = "${kubernetes_namespace.flux-system.id}"
-        }
-        "spec" = {
-            "interval" = "5m0s"
-            "ref" = {
-            "branch" = "master"
-            }
-            "url" = "https://github.com/bl-robinson/home-flux.git"
-            "secretRef" = {
-                "name" = "git-token"
-            }
-        }
-    }
-    depends_on = [ helm_release.flux ]
+resource "helm_release" "git_repo" {
+  name            = "flux-home-git-repo"
+  namespace       = "flux-system"
+  chart           = "${path.module}/charts/home-flux-repo"
+  description     = "Managed by Terraform"
+  max_history     = 5
+  atomic          = true
+  cleanup_on_fail = true
+  timeout         = 300
+
+  depends_on = [
+    kubernetes_namespace.flux-system,
+    helm_release.flux
+  ]
 }
 
 resource "kubernetes_secret" "git_token" {

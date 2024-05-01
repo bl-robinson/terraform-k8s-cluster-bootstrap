@@ -1,3 +1,13 @@
+resource "helm_release" "gateway_api_crds" {
+  name            = "gateway-api-crds"
+  namespace       = kubernetes_namespace.cilium.id
+  chart           = "${path.module}/charts/gateway-api-crds"
+  description     = "Managed by Terraform"
+  max_history     = 5
+  atomic          = true
+  cleanup_on_fail = true
+  timeout         = 300
+}
 
 
 resource "kubernetes_namespace" "cilium" {
@@ -8,6 +18,7 @@ resource "kubernetes_namespace" "cilium" {
     name = "cilium"
   }
 }
+
 
 resource "helm_release" "cilium" {
     name        = "cilium"
@@ -36,6 +47,16 @@ resource "helm_release" "cilium" {
     set {
       name = "ingressController.loadbalancerMode"
       value = "dedicated"
+    }
+
+    set {
+      name = "gatewayAPI.enabled"
+      value = true
+    }
+
+    set {
+      name = "kubeProxyReplacement"
+      value = true
     }
 }
 # See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

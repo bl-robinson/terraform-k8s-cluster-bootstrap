@@ -29,7 +29,7 @@ resource "helm_release" "flux" {
 
 resource "helm_release" "git_repo" {
   name            = "flux-home-git-repo"
-  namespace       = "flux-system"
+  namespace       = kubernetes_namespace.flux-system.id
   chart           = "${path.module}/charts/home-flux-repo"
   description     = "Managed by Terraform"
   max_history     = 5
@@ -38,7 +38,6 @@ resource "helm_release" "git_repo" {
   timeout         = 300
 
   depends_on = [
-    kubernetes_namespace.flux-system,
     helm_release.flux
   ]
 }

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: Gateway Api CRDs
+description: Gateway Api CRDs taken from https://docs.cilium.io/en/stable/network/servicemesh/gateway-api/gateway-api/#prerequisites
+type: application
+version: 0.0.1

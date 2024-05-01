@@ -28,4 +28,14 @@ resource "helm_release" "cilium" {
       value = false
     }
 
+    set {
+      name = "ingressController.enabled"
+      value = true
+    }
+
+    set {
+      name = "ingressController.loadbalancerMode"
+      value = "dedicated"
+    }
 }
+# See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

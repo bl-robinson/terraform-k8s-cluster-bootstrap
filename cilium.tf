@@ -27,7 +27,7 @@ resource "helm_release" "cilium" {
     chart       = "cilium"
     set {
       name = "ipam.operator.clusterPoolIPv4PodCIDRList"
-      value = "192.168.0.0/16"
+      value = "192.168.0.0/16" # Must be configured differently to host network!
     }
 
     set {

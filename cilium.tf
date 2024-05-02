@@ -58,5 +58,6 @@ resource "helm_release" "cilium" {
       name = "kubeProxyReplacement"
       value = true
     }
+    depends_on = [ helm_release.gateway_api_crds ]
 }
 # See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

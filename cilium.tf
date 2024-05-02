@@ -41,12 +41,7 @@ resource "helm_release" "cilium" {
 
     set {
       name = "ingressController.enabled"
-      value = true
-    }
-
-    set {
-      name = "ingressController.loadbalancerMode"
-      value = "dedicated"
+      value = false
     }
 
     set {

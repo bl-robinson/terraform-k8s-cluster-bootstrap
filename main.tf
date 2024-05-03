@@ -6,6 +6,10 @@ terraform {
     kubernetes = {
       version = "2.29.0"
     }
+    kubectl = {
+      source = "gavinbunney/kubectl"
+      version = "1.14.0"
+    }
   }
 }
 
@@ -16,5 +20,9 @@ provider "helm" {
 }
 
 provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
+provider "kubectl" {
   config_path = "~/.kube/config"
 }

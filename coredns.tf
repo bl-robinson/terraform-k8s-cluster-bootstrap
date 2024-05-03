@@ -32,5 +32,10 @@ data:
       cache 30
       forward . 10.0.0.103
     }
+    k8s.home.blrobinson.uk:53 {
+      errors
+      cache 30
+      forward . 10.0.0.103
+    }
 YAML
 }

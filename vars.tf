@@ -3,3 +3,9 @@ variable "github_token" {
   type = string
   sensitive = true
 }
+
+variable "github_token_classic" {
+  description = "The github token to use for github action runner controller."
+  type = string
+  sensitive = true
+}

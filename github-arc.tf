@@ -5,8 +5,7 @@ resource "kubernetes_secret" "github-arc-git-token" {
   }
 
   data = {
-    username = "git"
-    password = var.github_token
+    github_token=var.github_token_classic
   }
 }
 

@@ -9,3 +9,15 @@ variable "github_token_classic" {
   type = string
   sensitive = true
 }
+
+variable "sendgrid_sec" {
+  description = "Api key from sendgrid"
+  type = string
+  sensitive = true
+}
+
+variable "initial_mail_user_pass" {
+  description = "Initial mail user password"
+  type = string
+  sensitive = true
+}

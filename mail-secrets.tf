@@ -17,7 +17,7 @@ metadata:
 type: Opaque
 data:
   user: YXBpa2V5
-  password: ${var.initial_mail_user_pass}
+  password: ${var.sendgrid_sec}
 YAML
 }
 

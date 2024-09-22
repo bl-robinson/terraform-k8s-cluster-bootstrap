@@ -21,3 +21,15 @@ variable "initial_mail_user_pass" {
   type = string
   sensitive = true
 }
+
+variable "foundry_license_key" {
+  description = "Foundry VTT license key"
+  type = string
+  sensitive = true
+}
+
+variable "foundry_admin_password" {
+  description = "Foundry VTT Admin password"
+  type = string
+  sensitive = true
+}

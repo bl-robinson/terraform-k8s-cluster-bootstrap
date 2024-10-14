@@ -19,7 +19,7 @@ data:
            ttl 30
         }
         prometheus :9153
-        forward . 10.0.0.103 {
+        forward . 10.0.0.103 9.9.9.9 {
            max_concurrent 1000
         }
         cache 30

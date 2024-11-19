@@ -54,6 +54,16 @@ resource "helm_release" "cilium" {
       name = "kubeProxyReplacement"
       value = true
     }
+
+    set {
+      name = "k8sServiceHost"
+      value = "10.0.0.20" # IPaddr of the control plane node
+    }
+
+    set {
+      name = "k8sServicePort"
+      value = "6443"
+    }
     depends_on = [ helm_release.gateway_api_crds ]
 }
 # See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

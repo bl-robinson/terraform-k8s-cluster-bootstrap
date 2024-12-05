@@ -33,3 +33,9 @@ variable "foundry_admin_password" {
   type = string
   sensitive = true
 }
+
+variable "telegram_bot_token" {
+  description = "Telegram bot token"
+  type = string
+  sensitive = true
+}

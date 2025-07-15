@@ -7,17 +7,17 @@ resource "kubernetes_namespace" "mail" {
   }
 }
 
-resource "kubectl_manifest" "sendgrid_secret" {
+resource "kubectl_manifest" "relay_secret" {
     yaml_body = <<YAML
 apiVersion: v1
 kind: Secret
 metadata:
   namespace: mail
-  name: sendgrid-sec
+  name: relay-sec
 type: Opaque
 data:
-  user: YXBpa2V5
-  password: ${var.sendgrid_sec}
+  user: ${var.relay_user}
+  password: ${var.relay_sec}
 YAML
 }
 

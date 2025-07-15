@@ -10,8 +10,13 @@ variable "github_token_classic" {
   sensitive = true
 }
 
-variable "sendgrid_sec" {
-  description = "Api key from sendgrid"
+variable "relay_user" {
+  description = "Relay username"
+  type = string
+  sensitive = true
+}
+variable "relay_sec" {
+  description = "Api key from mail relay"
   type = string
   sensitive = true
 }

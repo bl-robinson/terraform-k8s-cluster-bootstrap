@@ -32,12 +32,17 @@ resource "helm_release" "cilium" {
     }
 
     set {
+      name = "ipam.operator.clusterPoolIPv6PodCIDRList"
+      value = "2a06:61c2:27ae::2:0/112"
+    }
+
+    set {
       name = "ipv6.enabled"
-      value = false
+      value = true
     }
     set {
       name = "frontend.server.ipv6"
-      value = false
+      value = true
     }
 
     set {

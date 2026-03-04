@@ -56,6 +56,11 @@ resource "helm_release" "cilium" {
     }
 
     set {
+      name = "gatewayAPI.externalTrafficPolicy"
+      value = "Cluster"
+    }
+
+    set {
       name = "kubeProxyReplacement"
       value = true
     }

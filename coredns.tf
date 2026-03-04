@@ -13,6 +13,10 @@ data:
            lameduck 5s
         }
         ready
+        hosts {
+           10.0.3.100 mail.blrobinson.uk
+           fallthrough
+        }
         kubernetes cluster.local in-addr.arpa ip6.arpa {
            pods insecure
            fallthrough in-addr.arpa ip6.arpa

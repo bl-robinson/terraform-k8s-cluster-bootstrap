@@ -25,7 +25,7 @@ resource "helm_release" "cilium" {
     namespace   = "cilium"
     repository  = "https://helm.cilium.io/"
     chart       = "cilium"
-    version     = "1.17.2"
+    version     = "1.19.1"
     set {
       name = "ipam.operator.clusterPoolIPv4PodCIDRList"
       value = "192.168.0.0/16" # Must be configured differently to host network!

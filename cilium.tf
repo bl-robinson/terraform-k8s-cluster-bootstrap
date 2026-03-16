@@ -61,6 +61,16 @@ resource "helm_release" "cilium" {
     }
 
     set {
+      name = "gatewayAPI.secretsNamespace.create"
+      value = true
+    }
+
+    set {
+      name = "gatewayAPI.secretsNamespace.sync"
+      value = true
+    }
+
+    set {
       name = "kubeProxyReplacement"
       value = true
     }

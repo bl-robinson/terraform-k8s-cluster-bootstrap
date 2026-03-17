@@ -84,6 +84,17 @@ resource "helm_release" "cilium" {
       name = "k8sServicePort"
       value = "6443"
     }
+
+    set {
+      name = "encryption.enabled"
+      value = true
+    }
+
+    set {
+      name = "encryption.type"
+      value = "wireguard"
+    }
+
     depends_on = [ helm_release.gateway_api_crds ]
 }
 # See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

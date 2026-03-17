@@ -44,3 +44,9 @@ variable "telegram_bot_token" {
   type = string
   sensitive = true
 }
+
+variable "vaultwarden_admin_token" {
+  description = "Vaultwarden admin panel token"
+  type = string
+  sensitive = true
+}

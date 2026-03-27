@@ -50,3 +50,9 @@ variable "vaultwarden_admin_token" {
   type = string
   sensitive = true
 }
+
+variable "vaultwarden_smtp_password" {
+  description = "SMTP password for vaultwarden@blrobinson.uk"
+  type = string
+  sensitive = true
+}

@@ -95,6 +95,21 @@ resource "helm_release" "cilium" {
       value = "wireguard"
     }
 
+    set {
+      name = "hubble.enabled"
+      value = true
+    }
+
+    set {
+      name = "hubble.relay.enabled"
+      value = true
+    }
+
+    set {
+      name = "hubble.ui.enabled"
+      value = true
+    }
+
     depends_on = [ helm_release.gateway_api_crds ]
 }
 # See https://docs.cilium.io/en/stable/network/servicemesh/ingress/ for ingress documentation

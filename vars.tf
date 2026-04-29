@@ -56,3 +56,9 @@ variable "vaultwarden_smtp_password" {
   type = string
   sensitive = true
 }
+
+variable "mosquitto_passwd" {
+  description = "Mosquitto passwd file content (one user:hash line per user). Generate with: mosquitto_passwd -H sha512-pbkdf2 -c -b /tmp/passwd <user> <password>; cat /tmp/passwd"
+  type = string
+  sensitive = true
+}

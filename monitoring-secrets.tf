@@ -14,6 +14,6 @@ resource "kubernetes_secret" "alertmanager_telegram_secret" {
   }
 
   data = {
-    token = var.telegram_bot_token
+    token = data.sops_file.secrets.data.telegram_bot_token
   }
 }

@@ -6,7 +6,7 @@ resource "kubernetes_secret" "git_token" {
 
   data = {
     username = "git"
-    password = var.github_token
+    password = data.sops_file.secrets.data.github_token
   }
   depends_on = [ helm_release.flux ]
 }

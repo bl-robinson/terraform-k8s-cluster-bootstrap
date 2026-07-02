@@ -14,6 +14,6 @@ resource "kubernetes_secret" "mosquitto_users" {
   }
 
   data = {
-    passwd = var.mosquitto_passwd
+    passwd = data.sops_file.secrets.data.mosquitto_passwd
   }
 }

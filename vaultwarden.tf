@@ -14,7 +14,7 @@ resource "kubernetes_secret" "vaultwarden_admin_token" {
   }
 
   data = {
-    admin-token = var.vaultwarden_admin_token
+    admin-token = data.sops_file.secrets.data["vaultwarden_admin_token"]
   }
 }
 
@@ -26,6 +26,6 @@ resource "kubernetes_secret" "vaultwarden_smtp" {
 
   data = {
     username = "vaultwarden@blrobinson.uk"
-    password = var.vaultwarden_smtp_password
+    password = data.sops_file.secrets.data.vaultwarden_smtp_password
   }
 }

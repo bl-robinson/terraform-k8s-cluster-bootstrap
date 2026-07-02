@@ -10,6 +10,10 @@ terraform {
       source = "gavinbunney/kubectl"
       version = "1.14.0"
     }
+    sops = {
+      source  = "carlpett/sops"
+      version = "~> 1.1"
+    }
   }
 }
 
@@ -25,4 +29,8 @@ provider "kubernetes" {
 
 provider "kubectl" {
   config_path = "~/.kube/config"
+}
+
+data "sops_file" "secrets" {
+  source_file = "secrets.enc.yaml"
 }

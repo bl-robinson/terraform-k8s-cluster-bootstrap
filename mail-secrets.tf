@@ -16,8 +16,8 @@ metadata:
   name: relay-sec
 type: Opaque
 data:
-  user: ${var.relay_user}
-  password: ${var.relay_sec}
+  user: ${data.sops_file.secrets.data["relay_user"]}
+  password: ${data.sops_file.secrets.data["relay_sec"]}
 YAML
 }
 
@@ -30,6 +30,6 @@ metadata:
   namespace: mail
 type: Opaque
 data:
-  initial-account-password: ${var.initial_mail_user_pass}
+  initial-account-password: ${data.sops_file.secrets.data.initial_mail_user_pass}
 YAML
 }

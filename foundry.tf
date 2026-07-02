@@ -16,7 +16,7 @@ metadata:
   name: foundry
 type: Opaque
 data:
-  licenseKey: ${var.foundry_license_key}
-  adminPassword: ${var.foundry_admin_password}
+  licenseKey: ${data.sops_file.secrets.data.foundry_license_key}
+  adminPassword: ${data.sops_file.secrets.data.foundry_admin_password}
 YAML
 }
